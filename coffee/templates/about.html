@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- About Section -->
+<div class="container mt-5">
+    <h1 class="text-center mb-4">About Us</h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h3>About {{ company_name }}</h3>
+            <p>{{ mission }}</p>
+            <p>Founded by: {{ founder }}</p>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Our Story</h3>
+            <p>
+                Founded in 2023, Java Junction started as a small coffee cart in the heart of the city. What began as a passion project quickly grew into a beloved local cafe. Today, we are proud to serve a wide range of beverages, from classic coffees to specialty teas, as well as fresh pastries made daily.
+            </p>
+            <p>
+                At Java Junction, we believe in creating memorable experiences for our customers, whether you're enjoying your morning coffee or catching up with friends over lunch. Our team is dedicated to making sure every visit is special and that every sip is delicious.
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Mission and Values Section -->
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Our Mission</h3>
+            <p>
+                Our mission is simple: to provide high-quality coffee, tea, and pastries in a welcoming and warm environment. We believe that great beverages bring people together and that each cup we serve should be a moment of enjoyment.
+            </p>
+            <h4>Our Core Values</h4>
+            <ul>
+                <li><strong>Quality</strong> - We use the finest ingredients and take pride in crafting the best beverages for our customers.</li>
+                <li><strong>Sustainability</strong> - We source locally and use environmentally friendly practices to minimize our footprint.</li>
+                <li><strong>Community</strong> - We support our local community by hosting events, offering educational opportunities, and creating a space for people to connect.</li>
+                <li><strong>Innovation</strong> - We're constantly experimenting with new flavors, techniques, and ideas to enhance your experience.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

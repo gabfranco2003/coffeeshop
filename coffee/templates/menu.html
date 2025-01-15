@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Menu - Java Junction{% endblock %}
+
+{% block content %}
+<h1>Our Menu</h1>
+
+<div class="container">
+    <!-- Coffee Section -->
+    <h2>Coffee</h2>
+    <div class="row">
+        {% for coffee_item in coffees %}
+            <div class="col-md-4 mb-4"> 
+                <div class="card square-card">
+                    <div class="image-container">
+                        <img src="{{ coffee_item.image }}" class="img-fluid card-img-top square-image" alt="{{ coffee_item.name }}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ coffee_item.name }}</h5>
+                        <p class="card-text">${{ coffee_item.price }}</p>
+                        <a href="#" class="btn btn-primary">Add for Order</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No coffee items available.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Tea Section -->
+    <h2>Tea</h2>
+    <div class="row">
+        {% for tea_item in teas %}
+            <div class="col-md-4 mb-4"> 
+                <div class="card square-card">
+                    <div class="image-container">
+                        <img src="{{ tea_item.image }}" class="img-fluid card-img-top square-image" alt="{{ tea_item.name }}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ tea_item.name }}</h5>
+                        <p class="card-text">${{ tea_item.price }}</p>
+                        <a href="#" class="btn btn-primary">Add for Order</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No tea items available.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pastries Section -->
+    <h2>Pastries</h2>
+    <div class="row">
+        {% for pastry_item in pastries %}
+            <div class="col-md-4 mb-4"> 
+                <div class="card square-card">
+                    <div class="image-container">
+                        <img src="{{ pastry_item.image }}" class="img-fluid card-img-top square-image" alt="{{ pastry_item.name }}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pastry_item.name }}</h5>
+                        <p class="card-text">${{ pastry_item.price }}</p>
+                        <a href="#" class="btn btn-primary">Add for Order</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No pastries available.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

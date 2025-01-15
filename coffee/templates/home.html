@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Java Junction{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section (Carousel) -->
+    {% if hero_images %}
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+
+            {% for hero_image in hero_images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="hero-section" style="background-image: url('{{ hero_image.image.url }}');">
+                    <div class="hero-text">
+                        <h1 class="display-4">{{ hero_image.title }}</h1>
+                        {% if hero_image.subtitle %}
+                            <p class="lead">{{ hero_image.subtitle }}</p>
+                        {% endif %}
+                        {% if hero_image.description %}
+                            <p class="hero-description">{{ hero_image.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    {% endif %}
+
+    <!-- Coffee, Tea, and Pastry Sections -->
+    <div class="row mb-5">
+
+        <!-- Coffee Section -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <img src="{{ coffee_item.image }}" class="card-img-top" alt="{{ coffee_item.name }}" style="object-fit: cover; height: 250px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ coffee_item.name }}</h5>
+                    <p class="card-text text-muted">${{ coffee_item.price }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tea Section -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <img src="{{ tea_item.image }}" class="card-img-top" alt="{{ tea_item.name }}" style="object-fit: cover; height: 250px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ tea_item.name }}</h5>
+                    <p class="card-text text-muted">${{ tea_item.price }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pastry Section -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <img src="{{ pastry_item.image }}" class="card-img-top" alt="{{ pastry_item.name }}" style="object-fit: cover; height: 250px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ pastry_item.name }}</h5>
+                    <p class="card-text text-muted">${{ pastry_item.price }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- See More Button -->
+    <div class="d-flex justify-content-center mt-4">
+        <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">See Our Full Menu</a>
+    </div>
+
+</div>
+{% endblock %}
